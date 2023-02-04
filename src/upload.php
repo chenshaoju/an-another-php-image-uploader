@@ -36,7 +36,7 @@ if (!$image_type) {
     die('Uploaded file is not an image.');
 }
 
-$filename = basename($filepath);
+$filename = time().basename($filepath);
 $extension = $allowedTypes[$filetype];
 $targetDirectory = __DIR__ . "/" . date('Y');
 
