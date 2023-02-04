@@ -6,7 +6,7 @@ Any webserver with php support.
 ## how to use
 Upload `index.htm` and `upload.php` iles in the `src` directory to the web server, and set the permissions of the directory to 777.
 
-** Change default password (123456) in upload.php files before upload. **
+**Change default password (123456) in upload.php files before upload.**
 
 
 ## reference
