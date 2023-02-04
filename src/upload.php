@@ -64,3 +64,4 @@ else {
 echo $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . date('Y') . "/" . $filename . "." . $extension;
 echo '<br><br><img src="' . $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . date('Y') . "/" . $filename . "." . $extension . '" />';
 
+?>
