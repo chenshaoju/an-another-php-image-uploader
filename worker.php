@@ -9,6 +9,10 @@ if (!isset($image_file)) {
     die('No file uploaded.');
 }
 
+if (file_exists( __DIR__ . "/" . date('Y') . "/" . $image_file["name"] )){
+    die('File already exists.');
+}
+
 if (!file_exists(__DIR__ . "/" . date('Y'))) {
     mkdir(__DIR__ . "/" . date('Y'), 0777, true);
 }
