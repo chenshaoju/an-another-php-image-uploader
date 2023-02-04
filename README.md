@@ -1,4 +1,4 @@
-# a-another-php-image-uploader
+# an-another-php-image-uploader
 
 ## requirements
 Any webserver with php support.
