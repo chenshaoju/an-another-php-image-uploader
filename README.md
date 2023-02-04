@@ -1,5 +1,8 @@
 # an-another-php-image-uploader
 
+## demo
+![demo.gif](https://github.com/chenshaoju/an-another-php-image-uploader/blob/main/demo.gif?raw=true)
+
 ## requirements
 Any webserver with php support.
 
