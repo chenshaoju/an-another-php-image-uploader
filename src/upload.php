@@ -10,13 +10,13 @@ if (!isset($image_file)) {
     die('No file uploaded.');
 }
 
-if (!file_exists(__DIR__ . "/" . date('Y'))) {
-    mkdir(__DIR__ . "/" . date('Y'), 0777, true);
-}
-
 $image_type = exif_imagetype($image_file["tmp_name"]);
 if (!$image_type) {
     die('Uploaded file is not an image.');
+}
+
+if (!file_exists(__DIR__ . "/" . date('Y'))) {
+    mkdir(__DIR__ . "/" . date('Y'), 0777, true);
 }
 
 if (file_exists( __DIR__ . "/" . date('Y') . "/" . $image_file["name"] )){
@@ -29,6 +29,16 @@ move_uploaded_file(
 
 );
 
-echo "https://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . date('Y') . "/" . $image_file["name"];
+if (isset($_SERVER['HTTPS']) &&
+    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+    $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $protocol = 'https://';
+}
+else {
+  $protocol = 'http://';
+}
+
+echo $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . date('Y') . "/" . $image_file["name"];
 
 ?>
