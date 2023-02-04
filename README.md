@@ -25,3 +25,5 @@ https://stackoverflow.com/questions/27036435/php-postpassword
 https://blog.csdn.net/xgocn/article/details/79301171
 
 https://stackoverflow.com/questions/4503135/php-get-site-url-protocol-http-vs-https
+
+https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
