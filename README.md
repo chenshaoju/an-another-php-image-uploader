@@ -1,6 +1,6 @@
 # a-another-php-image-uploader
 
-##reference
+## reference
 
 https://pqina.nl/blog/image-upload-with-php/
 
