@@ -36,6 +36,10 @@ if (!$image_type) {
     die('Uploaded file is not an image.');
 }
 
+if (!file_exists(__DIR__ . "/" . date('Y'))) {
+    mkdir(__DIR__ . "/" . date('Y'), 0777, true);
+}
+
 $filename = time().basename($filepath);
 $extension = $allowedTypes[$filetype];
 $targetDirectory = __DIR__ . "/" . date('Y');
