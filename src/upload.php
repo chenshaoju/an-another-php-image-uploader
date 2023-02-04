@@ -17,7 +17,7 @@ if ($fileSize === 0) {
     die("The file is empty.");
 }
 
-if ($fileSize > 3145728) { // 3 MB (1 byte * 1024 * 1024 * 3 (for 3 MB))
+if ($fileSize > 3145728) {
     die("The file is too large");
 }
 
