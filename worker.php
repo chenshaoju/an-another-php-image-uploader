@@ -9,6 +9,10 @@ if (!isset($image_file)) {
     die('No file uploaded.');
 }
 
+if (!file_exists(__DIR__ . "/" . date('Y'))) {
+    mkdir(__DIR__ . "/" . date('Y'), 0777, true);
+}
+
 $image_type = exif_imagetype($image_file["tmp_name"]);
 if (!$image_type) {
     die('Uploaded file is not an image.');
