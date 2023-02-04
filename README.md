@@ -14,7 +14,7 @@ Upload `index.htm` and `upload.php` in the `src` directory to the web server, an
 
 ## reference
 
-https://pqina.nl/blog/image-upload-with-php/
+https://dev.to/einlinuus/how-to-upload-files-with-php-correctly-and-securely-1kng
 
 https://stackoverflow.com/questions/10717249/get-current-domain
 
