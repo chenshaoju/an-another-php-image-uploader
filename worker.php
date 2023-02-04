@@ -23,7 +23,6 @@ if (file_exists( __DIR__ . "/" . date('Y') . "/" . $image_file["name"] )){
     die('File already exists.');
 }
 
-
 move_uploaded_file(
     $image_file["tmp_name"],
     __DIR__ . "/" . date('Y') . "/" . $image_file["name"]
