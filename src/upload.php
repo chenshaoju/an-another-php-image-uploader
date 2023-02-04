@@ -61,7 +61,7 @@ else {
   $protocol = 'http://';
 }
 
-echo '<input type="text" value="' . $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . date('Y') . "/" . $filename . "." . $extension . '" id="imgurl" size="50">';
+echo '<input type="text" value="' . $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . date('Y') . "/" . $filename . "." . $extension . '" id="imgurl" size="50" />';
 echo '<button onclick="copyurl()">Copy URL</button>';
 echo '<br /><br /><img src="' . $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . date('Y') . "/" . $filename . "." . $extension . '" />';
 
@@ -70,7 +70,7 @@ echo '<br /><br /><img src="' . $protocol . $_SERVER['SERVER_NAME'] . dirname($_
     function copyurl() {
   var copyText = document.getElementById("imgurl");
   copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
+  copyText.setSelectionRange(0, 99999);
 
   navigator.clipboard.writeText(copyText.value);
 
