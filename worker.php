@@ -1,4 +1,5 @@
 <?php
+// Change 123456 before upload!
 if ($_POST["password"] != "123456") { 
     die('Password is not correct.');
 }
@@ -9,10 +10,6 @@ if (!isset($image_file)) {
     die('No file uploaded.');
 }
 
-if (file_exists( __DIR__ . "/" . date('Y') . "/" . $image_file["name"] )){
-    die('File already exists.');
-}
-
 if (!file_exists(__DIR__ . "/" . date('Y'))) {
     mkdir(__DIR__ . "/" . date('Y'), 0777, true);
 }
@@ -21,6 +18,11 @@ $image_type = exif_imagetype($image_file["tmp_name"]);
 if (!$image_type) {
     die('Uploaded file is not an image.');
 }
+
+if (file_exists( __DIR__ . "/" . date('Y') . "/" . $image_file["name"] )){
+    die('File already exists.');
+}
+
 
 move_uploaded_file(
     $image_file["tmp_name"],
