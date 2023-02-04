@@ -20,3 +20,5 @@ https://stackoverflow.com/questions/51789617/php-get-url-of-current-file-directo
 https://stackoverflow.com/questions/27036435/php-postpassword
 
 https://blog.csdn.net/xgocn/article/details/79301171
+
+https://stackoverflow.com/questions/15074013/php-if-file-exists
