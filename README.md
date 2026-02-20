@@ -22,7 +22,7 @@ UPLOADER_PASSWORD_HASH='<generated hash>'
 ```
 
 4. Optionally configure:
-   - `UPLOAD_DIR` (default: `../uploads` relative to project root)
+   - `UPLOAD_DIR` (default: `./` relative to project root)
    - `APP_BASE_URL` (recommended, e.g. `https://example.com`)
    - `UPLOAD_URL_PREFIX` (URL path prefix for uploaded files; default behavior is:
    - `uploads` when `UPLOAD_DIR` is not set
