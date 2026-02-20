@@ -177,8 +177,10 @@ if (!move_uploaded_file($filepath, $newFilepath)) {
     fail("Can't move file.", 500);
 }
 
+
 $publicPrefix = buildPublicRelativePrefix();
 $publicPath = ($publicPrefix === '' ? '' : $publicPrefix . '/') . date('Y') . '/' . $filename . '.' . $extension;
+$publicPath = './' . date('Y') . '/' . $filename . '.' . $extension;
 $publicUrl = buildPublicUrl($publicPath);
 $safeUrl = htmlspecialchars($publicUrl, ENT_QUOTES, 'UTF-8');
 
