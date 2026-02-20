@@ -4,13 +4,28 @@
 ![demo.gif](https://github.com/chenshaoju/an-another-php-image-uploader/blob/main/demo.gif?raw=true)
 
 ## requirements
-Any webserver with php support.
+Any webserver with PHP support (`session`, `fileinfo`, and `exif`).
 
-## how to use
-Upload `index.htm` and `upload.php` in the `src` directory to the web server, and set the permissions of the directory to 777.
+## secure setup
+1. Upload files from the `src` directory.
+2. Use `index.php` (not `index.htm`) as the entry page.
+3. Configure a password hash via environment variable:
 
-**Change default password (123456) in upload.php files before upload.**
+```bash
+php -r "echo password_hash('replace-with-strong-password', PASSWORD_DEFAULT), PHP_EOL;"
+```
 
+Then set:
+
+```bash
+UPLOADER_PASSWORD_HASH='<generated hash>'
+```
+
+4. Optionally configure:
+   - `UPLOAD_DIR` (default: `../uploads` relative to project root)
+   - `APP_BASE_URL` (recommended, e.g. `https://example.com`)
+
+5. Ensure upload directory permissions are least privilege (`0755` or tighter based on your deployment).
 
 ## reference
 
