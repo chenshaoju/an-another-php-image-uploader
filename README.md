@@ -25,9 +25,9 @@ UPLOADER_PASSWORD_HASH='<generated hash>'
    - `UPLOAD_DIR` (default: `./` relative to project root)
    - `APP_BASE_URL` (recommended, e.g. `https://example.com`)
    - `UPLOAD_URL_PREFIX` (URL path prefix for uploaded files; default behavior is:
-   - `uploads` when `UPLOAD_DIR` is not set
-   - empty when `UPLOAD_DIR` is explicitly set)
-=======
+      - current folder when `UPLOAD_DIR` is not set
+      - empty when `UPLOAD_DIR` is explicitly set)
+
 
 5. Ensure upload directory permissions are least privilege (`0755` or tighter based on your deployment).
 
