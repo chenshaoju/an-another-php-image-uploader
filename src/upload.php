@@ -161,7 +161,7 @@ if (exif_imagetype($filepath) === false) {
 
 $uploadRoot = getenv('UPLOAD_DIR');
 if (!is_string($uploadRoot) || trim($uploadRoot) === '') {
-    $uploadRoot = dirname(__DIR__) . '/uploads';
+    $uploadRoot = './';
 }
 
 $yearDir = $uploadRoot . '/' . date('Y');
