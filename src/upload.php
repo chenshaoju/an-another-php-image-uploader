@@ -86,6 +86,23 @@ function buildPublicUrl(string $relativePath): string
     return $protocol . $host . '/' . $prefix . ltrim($relativePath, '/');
 }
 
+function buildPublicRelativePrefix(): string
+{
+    $configuredPrefix = getenv('UPLOAD_URL_PREFIX');
+    if (is_string($configuredPrefix)) {
+        return trim($configuredPrefix, '/');
+    }
+
+    // Backward-compatible default: when UPLOAD_DIR is not set, files are under ../uploads.
+    // If UPLOAD_DIR is explicitly configured, do not force an extra /uploads path segment.
+    $hasCustomUploadDir = getenv('UPLOAD_DIR');
+    if (is_string($hasCustomUploadDir) && trim($hasCustomUploadDir) !== '') {
+        return '';
+    }
+
+    return 'uploads';
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     fail('Method not allowed.', 405);
 }
@@ -160,7 +177,10 @@ if (!move_uploaded_file($filepath, $newFilepath)) {
     fail("Can't move file.", 500);
 }
 
-$publicPath = 'uploads/' . date('Y') . '/' . $filename . '.' . $extension;
+
+$publicPrefix = buildPublicRelativePrefix();
+$publicPath = ($publicPrefix === '' ? '' : $publicPrefix . '/') . date('Y') . '/' . $filename . '.' . $extension;
+$publicPath = './' . date('Y') . '/' . $filename . '.' . $extension;
 $publicUrl = buildPublicUrl($publicPath);
 $safeUrl = htmlspecialchars($publicUrl, ENT_QUOTES, 'UTF-8');
 
