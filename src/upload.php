@@ -93,7 +93,7 @@ function buildPublicRelativePrefix(): string
         return trim($configuredPrefix, '/');
     }
 
-    // Backward-compatible default: when UPLOAD_DIR is not set, files are under ../uploads.
+    // Backward-compatible default: when UPLOAD_DIR is not set, files are under current folder.
     // If UPLOAD_DIR is explicitly configured, do not force an extra /uploads path segment.
     $hasCustomUploadDir = getenv('UPLOAD_DIR');
     if (is_string($hasCustomUploadDir) && trim($hasCustomUploadDir) !== '') {
@@ -180,7 +180,7 @@ if (!move_uploaded_file($filepath, $newFilepath)) {
 
 $publicPrefix = buildPublicRelativePrefix();
 $publicPath = ($publicPrefix === '' ? '' : $publicPrefix . '/') . date('Y') . '/' . $filename . '.' . $extension;
-$publicPath = './' . date('Y') . '/' . $filename . '.' . $extension;
+$publicPath = '' . date('Y') . '/' . $filename . '.' . $extension;
 $publicUrl = buildPublicUrl($publicPath);
 $safeUrl = htmlspecialchars($publicUrl, ENT_QUOTES, 'UTF-8');
 
